@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:favorite_button/favorite_button.dart';
+import 'package:final_project/createpost.dart';
 import 'package:final_project/postdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -215,7 +216,11 @@ class _HomePageState extends State<HomePage> {
                                             ],
                                           ),
                                         ),
-                                      ]))),
+                                      ]
+                                    ),
+                                  ),
+                                ),
+
                           onTap: () {
                             final textTitle = _items[index]["title"];
                             final textDescription = _items[index]["description"];
@@ -231,6 +236,15 @@ class _HomePageState extends State<HomePage> {
                       }))
               : Container()
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () async {
+            Navigator.push(
+              context, MaterialPageRoute(builder: (context) => CreatePostPage(),
+              ));
+            },
+          child: const Icon(Icons.add),
+          backgroundColor: Colors.blueAccent,
       ),
     );
   }
